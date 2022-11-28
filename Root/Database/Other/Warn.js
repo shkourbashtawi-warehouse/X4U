@@ -1,0 +1,26 @@
+const mongoose = require('mongoose');
+
+const WarnSchema = new mongoose.Schema({
+	userId: {
+		type: String,
+		required: true,
+	},
+	guildId: {
+		type: String,
+		required: true,
+	},
+	moderatorId: {
+		type: String,
+		required: true,
+	},
+	reason: {
+		type: String,
+		required: true,
+	},
+	timestamp: {
+		type: Number,
+		required: true,
+	},
+});
+
+module.exports = mongoose.model('warn-system', WarnSchema);
