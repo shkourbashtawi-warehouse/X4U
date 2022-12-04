@@ -79,7 +79,7 @@ module.exports = class MessageCreate extends Event {
       }
     } else if (!prefix) {
       if (message.guild.id != this.client.config.Danger.GuildId) return;
-      if (message.channel.id === '885588512345296966') {
+      if (message.channel.id === '799487195907620874') {
         if (message.author.id === this.client.user.id) return;
         if (!message.content.includes('https://') && message.attachments.size > 0 === false) {
           return message.delete().catch(() => {});
@@ -122,24 +122,12 @@ module.exports = class MessageCreate extends Event {
               autoArchiveDuration: this.client.Discord.ThreadAutoArchiveDuration.OneWeek,
             })
             .then((Thread) => {
-              const Photo = message.content.match(/\.(gif|jpg|jpeg|tiff|png|webm)$/);
-              if (!Photo) {
-                let embed = new this.client.Discord.EmbedBuilder()
-                  .setColor(this.client.config.Color.basicColor)
-                  .setDescription(
-                    `Welcome to the chat for Memes, Please chat here.\nThe meme has been posted by **__${message.author.username}__**`,
-                  );
-                Thread.send({ embeds: [embed] });
-                return Thread.send({ content: `${message.content || "I`am can't upload this photo"}` });
-              }
-              if (Photo) {
                 let embed = new this.client.Discord.EmbedBuilder()
                   .setColor(this.client.config.Color.basicColor)
                   .setDescription(
                     `Welcome to the chat for Memes, Please chat here.\nThe meme has been posted by **__${message.author.username}__**`,
                   );
                 return Thread.send({ embeds: [embed] });
-              }
             });
         }
       }
