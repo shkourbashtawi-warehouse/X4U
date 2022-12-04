@@ -14,7 +14,5 @@ module.exports = class TestDev extends Command {
     });
   }
 
-  async run(client, ctx) {
-   
-  }
+  async run(client, ctx) {}
 };

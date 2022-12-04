@@ -21,10 +21,10 @@ module.exports = class SubmitButtonModal extends Modal {
       });
       await newUser.save().catch((e) => this.client.logger.error(e));
       User = await UserSchema.findOne({ userId: interaction.user.id });
-    } 
-    
+    }
+
     const Role = interaction.guild.roles.cache.get('1048360192988950579');
-    interaction.member.roles.add(Role)
+    interaction.member.roles.add(Role);
 
     const Button0 = new client.Discord.ActionRowBuilder().addComponents(
       new client.Discord.ButtonBuilder()
@@ -59,6 +59,6 @@ module.exports = class SubmitButtonModal extends Modal {
         `Thank you for submitting to the competition. A role <@&1048360192988950579> has been given to you to be notified when the competition starts and also keep you informed`,
       )
       .setColor(client.config.Color.basicColor);
-     return interaction.reply({ embeds: [Embed], ephemeral: true });
+    return interaction.reply({ embeds: [Embed], ephemeral: true });
   }
 };

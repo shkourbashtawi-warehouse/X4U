@@ -96,10 +96,10 @@ module.exports = class Create extends Command {
         force: true,
       });
       const MemberFetched = ctx.guild.members.cache.get(Fetched.id);
-      MemberFetched.roles.add(Role)
+      MemberFetched.roles.add(Role);
 
       const RoleCompetitor = ctx.guild.roles.cache.get('1048360192988950579');
-      MemberFetched.roles.add(RoleCompetitor)
+      MemberFetched.roles.add(RoleCompetitor);
 
       let Team = await TeamSchema.findOne({
         teamId: TeamId,
@@ -123,7 +123,11 @@ module.exports = class Create extends Command {
         Team = await TeamSchema.findOne({ teamId: Number(TeamId) });
       }
       const Embed = new client.Discord.EmbedBuilder()
-        .setDescription(`The team was created.\nTeam Id: **${Number(TeamId)}**\nLeader Team: **${LeaderTeam}**\nTeam Name: **${TeamName}**\nTeam Role: <@&${Role.id}>`)
+        .setDescription(
+          `The team was created.\nTeam Id: **${Number(
+            TeamId,
+          )}**\nLeader Team: **${LeaderTeam}**\nTeam Name: **${TeamName}**\nTeam Role: <@&${Role.id}>`,
+        )
         .setColor(client.config.Color.basicColor);
       ctx.sendReply({
         embeds: [Embed],

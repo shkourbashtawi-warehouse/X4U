@@ -56,7 +56,7 @@ module.exports = class TeamSetupPlayerChooseMain extends Menu {
       force: true,
     });
     const MemberFetched = interaction.guild.members.cache.get(Fetched.id);
-    MemberFetched.roles.add(Role)
+    MemberFetched.roles.add(Role);
 
     const Embed1 = new client.Discord.EmbedBuilder()
       .setDescription(`A player has been selected. Information has been sent to a channel <#1048028251244744784>`)
